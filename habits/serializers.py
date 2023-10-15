@@ -4,6 +4,11 @@ from habits.models import Habit
 
 
 class HabitSerializer(serializers.ModelSerializer):
+    """
+    Сериализатор для модели привычек.
+    Сериализатор используется для преобразования объектов модели привычки в JSON-формат и обратно при взаимодействии
+    с API.
+    """
     class Meta:
         model = Habit
         fields = (

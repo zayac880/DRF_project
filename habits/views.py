@@ -72,6 +72,7 @@ class HabitCreateAPIView(generics.CreateAPIView):
         telegram_user_id = self.request.user.telegram_user_id
         schedule_notification(habit, telegram_user_id)
 
+
 class HabitUpdateAPIView(generics.UpdateAPIView):
     """
     Представление для обновления информации о существующей привычке.

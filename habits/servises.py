@@ -6,6 +6,11 @@ from habits.models import Habit
 
 
 def schedule_notification(habit: Habit, telegram_user_id):
+    """
+    Создает или обновляет периодическую задачу (PeriodicTask) для уведомлений.
+    Создает CrontabSchedule для задачи, используя настройки привычки, и связывает его с задачей
+    PeriodicTask.
+    """
     #schedule, _ = CrontabSchedule.objects.get_or_create(
     #     minute=habit.time.minute,
     #     hour=habit.time.hour,
