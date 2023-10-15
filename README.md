@@ -65,7 +65,7 @@
 ***
 
 * ### **Автор:**
-Алексей Заяц  -  zayac880@mail.ru.
+Алексей Заяц 
 
 github: https://github.com/zayac880
 ***
