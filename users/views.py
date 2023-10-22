@@ -21,7 +21,7 @@ class UsersViewSet(viewsets.ModelViewSet):
     """
     Представление для работы с моделью User.
     Этот класс определяет представление, которое обрабатывает запросы для модели User.
-    Он наследует viewsets.ModelViewSet из Django REST framework и предоставляет
+    Он наследует ModelViewSet из Django REST framework и предоставляет
     стандартные CRUD-операции для модели User.
     """
     permission_classes = [CustomPermission]
@@ -33,8 +33,8 @@ class UsersViewSet(viewsets.ModelViewSet):
         email = request.data.get('email')
         password = request.data.get('password')
         hashed_password = make_password(password)
-        User = get_user_model()
+        user = get_user_model()
 
-        user = User(email=email, password=hashed_password)
+        user = user(email=email, password=hashed_password)
         user.save()
         return Response({'message': 'Пользователь успешно зарегистрирован!'}, status=status.HTTP_201_CREATED)

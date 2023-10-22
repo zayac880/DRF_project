@@ -1,5 +1,6 @@
 from rest_framework import generics
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
 from rest_framework import status
 
 from django.core.exceptions import ValidationError
@@ -47,7 +48,8 @@ class HabitCreateAPIView(generics.CreateAPIView):
     """
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    #permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
         data = serializer.validated_data
@@ -79,7 +81,8 @@ class HabitUpdateAPIView(generics.UpdateAPIView):
     """
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    # permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [AllowAny]
 
 
 class HabitDestroyAPIView(generics.DestroyAPIView):
