@@ -28,35 +28,28 @@
 
 ***
 * ### **Установка и Запуск:**
+* Предустановочные требования:
+1. Docker:  
+https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+
 Следуйте этим шагам, чтобы установить и запустить проект:
 1. Клонируйте репозиторий с помощью Git:
  
         git clone https://github.com/zayac880/kurs_drf.git
 
-2. Создайте и активируйте виртуальное окружение (рекомендуется):
-
-       poetry install
-
-3. Настройте файл с переменными окружения .env:
+2. Переименуйте файл .env.sample в .env и заполните переменные окружения:
 
        USER_BASE= name db
        PASSWORD_BASE= password db
        ACCESS_TOKEN_LIFETIME_MINUTES= token expiration date
        REFRESH_TOKEN_LIFETIME_DAYS= token lifetime
        TELEGRAM_BOT_TOKEN= token telegram bot
-
-4. Примените миграции:
  
-       python manage.py migrate
-       python manage.py makemigrations
- 
-5. Запустите команду:
+3. Запустите команду:
       
-       python manage.py create_custom_superuser    
+       docker compose up --build -d   
 
-6. Запустите сервер:
 
-        python manage.py runserver
 ***
 После выполнения этих шагов, проект будет доступен по адресу http://localhost:8000/.
 ***
